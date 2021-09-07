@@ -3,7 +3,7 @@
    <meta>
       <uid>83dudbs7ebddh372d</uid>
       <name>Odd or Even, size Tester</name>
-      <description>Determines if a number is odd, even or zero, then takes an input from stdin and compares it to thr number</description>
+      <description>Determines if a number is odd, even or zero, then takes an input from stdin and compares it to the number</description>
       <comment>Yes, the code is full of unnecessary stuff to showcase the lang</comment>
       <codename>Oddeven</codename>
       <version>1.0</version>
@@ -143,7 +143,7 @@
             The number
             <ntwo />
             is
-            <getProp prop="verbed">
+            <p_verbed>
                <numCompare>
                   <n>
                      <args.num />
@@ -152,7 +152,7 @@
                      <ntwo />
                   </n2>
                </numCompare>
-            </getProp>
+            </p_verbed>
             <args.n />
          </IO.put>
       </main>
