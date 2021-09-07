@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<XMLANG version="1.0">
+<XMLANG version="1.0" type="program">
    <meta>
       <uid>83dudbs7ebddh372d</uid>
       <name>Odd or Even, size Tester</name>
