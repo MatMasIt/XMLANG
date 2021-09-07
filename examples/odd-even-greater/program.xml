@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XMLANG version="1.0">
+   <meta>
+      <uid>83dudbs7ebddh372d</uid>
+      <name>Odd or Even, size Tester</name>
+      <description>Determines if a number is odd, even or zero, then takes an input from stdin and compares it to thr number</description>
+      <comment>Yes, the code is full of unnecessary stuff to showcase the lang</comment>
+      <codename>Oddeven</codename>
+      <version>1.0</version>
+      <date>2021-09-08</date>
+      <by>
+         <commonName>The XMLANG group</commonName>
+         <authors>
+            <author>
+               <name>Matt</name>
+               <github>MatMasIt</github>
+               <telegram>matmasak</telegram>
+               <email>example@email.com</email>
+            </author>
+         </authors>
+      </by>
+   </meta>
+   <arguments>
+      <num>
+         <description>The number</description>
+         <type>
+            <types.INT />
+         </type>
+      </num>
+   </arguments>
+   <code>
+      <function name="isOdd">
+         <description>Is it even, zero or odd?</description>
+         <arguments>
+            <num>
+               <description>The number</description>
+               <type>
+                  <types.INT />
+               </type>
+            </num>
+         </arguments>
+         <code>
+            <if>
+               <test>
+                  <args.num />
+                  <equals />
+                  0
+               </test>
+               <true>
+                  <return>Zero</return>
+               </true>
+               <false>
+                  <if>
+                     <test>
+                        <args.num />
+                        <modulo />
+                        2
+                        <equals />
+                        0
+                     </test>
+                     <true>
+                        <return>Even</return>
+                     </true>
+                     <false>
+                        <return>Odd</return>
+                     </false>
+                  </if>
+               </false>
+            </if>
+         </code>
+      </function>
+      <enum name="compare">
+         <greater string="greater" verbed="greather than">1</greater>
+         <equal string="equal" verbed="equals to">0</equal>
+         <lesser string="lesser" verbed="less than">-1</lesser>
+      </enum>
+      <function name="numCompare">
+         <description>Is it greater, equals or smaller?</description>
+         <arguments>
+            <n>
+               <description>The reference number</description>
+               <type>
+                  <types.INT />
+               </type>
+            </n>
+            <n2>
+               <description>The number to be compared</description>
+               <type>
+                  <types.INT />
+               </type>
+               <default>0</default>
+            </n2>
+         </arguments>
+         <code>
+            <if>
+               <test>
+                  <args.n2 />
+                  <smaller />
+                  <args.n />
+               </test>
+               <true>
+                  <return>
+                     <compare.lesser />
+                  </return>
+               </true>
+               <false>
+                  <if>
+                     <test>
+                        <args.n2 />
+                        <equals />
+                        <args.n />
+                     </test>
+                     <true>
+                        <return>
+                           <compare.equal />
+                        </return>
+                     </true>
+                     <false>
+                        <return>
+                           <compare.greater />
+                        </return>
+                     </false>
+                  </if>
+               </false>
+            </if>
+         </code>
+      </function>
+      <main>
+         <IO.put>
+            The number is
+            <isOdd>
+               <num>
+                  <args.num />
+               </num>
+            </isOdd>
+         </IO.put>
+         <set var="ntwo">
+            <Integer>
+               <IO.get>Give me a number</IO.get>
+            </Integer>
+         </set>
+         <IO.put>
+            The number
+            <ntwo />
+            is
+            <getProp prop="verbed">
+               <numCompare>
+                  <n>
+                     <args.num />
+                  </n>
+                  <n2>
+                     <ntwo />
+                  </n2>
+               </numCompare>
+            </getProp>
+            <args.n />
+         </IO.put>
+      </main>
+      <return>0</return>
+   </code>
+</XMLANG>
