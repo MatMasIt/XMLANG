@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <XMLANG version="1.0" type="class" namespace="Shapes">
    <meta>
-      <uid>892kxwbduamcpad</uid>
+      <uid>892kxwbduamcvhjpad</uid>
       <name>Square</name>
-      <description>A simpls rectangle class</description>
+      <description>A simpls square class</description>
       <comment>What a cool class</comment>
       <codename>Quadris</codename>
       <version>1.0</version>
@@ -22,92 +22,23 @@
    </meta>
    <Square extends="Rectangle">
       <declarations>
-         <l>
-            <description>The side</description>
-            <type>
-               <types.FLOAT />
-            </type>
-            <access>
-               <accesses.PRIVATE />
-            </access>
-         </l>
+         <private float="l" description="Side" />
       </declarations>
-      <constructor>
-         <arguments>
-            <l>
-               <description>The side</description>
-               <type>
-                  <types.FLOAT />
-               </type>
-            </l>
-         </arguments>
-         <code>
-            <super.constructor>
-               <w>
-                  <l />
-               </w>
-               <h>
-                  <l />
-               </h>
-            </super.constructor>
-         </code>
+      <constructor args="FLOAT l">
+            <super.constructor w="l" h="l" />
       </constructor>
       <!-- Perimeter and area methods are hereditated -->
-      <function name="getW">
-         <access>
-            <accesses.NO />
-         </access>
-      </function>
-      <function name="getH">
-         <access>
-            <accesses.NO />
-         </access>
-      </function>
-      <function name="setW">
-         <access>
-            <accesses.NO />
-         </access>
-      </function>
-      <function name="setH">
-         <access>
-            <accesses.NO />
-         </access>
-      </function>
-      <!-- Disable direct access for methods -->
-      <function name="getL">
-         <description>Get side</description>
-         <returns>
-            <types.FLOAT />
-         </returns>
-         <access>
-            <accesses.PUBLIC />
-         </access>
-         <return>
-            <super.getW />
-         </return>
-      </function>
-      <function name="setL">
-         <description>Set width</description>
-         <returns>
-            <types.VOID />
-         </returns>
-         <arguments>
-            <l>
-               <description>The side</description>
-               <type>
-                  <types.FLOAT />
-               </type>
-            </l>
-         </arguments>
-         <access>
-            <accesses.PUBLIC />
-         </access>
-         <super.setW>
-            <l />
-         </super.setW>
-         <super.setH>
-            <l />
-         </super.setH>
-      </function>
+      <blocked function="getW" />
+      <blocked function="getH" />
+      <blocked function="setW" />
+      <blocked function="setH" />
+      <!-- Disable direct access for hereditated methods -->
+      <public function="getL" returns="FLOAT" description="Get side">
+         <return><super.getW /></return>
+      </public>
+      <function name="setL" args="FLOAT l" returns="VOID" description="Set side">
+      <super.setW><l /></super.setW>
+      <super.setH><l /></super.setH>
+      </public>
    </Square>
 </XMLANG>
