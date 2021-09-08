@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XMLANG version="1.0" type="class" namespace="Shapes">
+   <meta>
+      <uid>892kxwbduamcpad</uid>
+      <name>Rectangle</name>
+      <description>A simpls rectangle class</description>
+      <comment>What a cool class</comment>
+      <codename>Recta</codename>
+      <version>1.0</version>
+      <date>2021-09-08</date>
+      <by>
+         <commonName>The XMLANG group</commonName>
+         <authors>
+            <author>
+               <name>Matt</name>
+               <github>MatMasIt</github>
+               <telegram>matmasak</telegram>
+               <email>example@email.com</email>
+            </author>
+         </authors>
+      </by>
+   </meta>
+   <Rectangle>
+      <declarations>
+         <w>
+            <description>The width</description>
+            <type>
+               <types.FLOAT />
+            </type>
+            <access>
+               <accesses.PRIVATE />
+            </access>
+         </w>
+         <h>
+            <description>The height</description>
+            <type>
+               <types.FLOAT />
+            </type>
+            <access>
+               <accesses.PRIVATE />
+            </access>
+         </h>
+      </declarations>
+      <constructor>
+         <arguments>
+            <w>
+               <description>The width</description>
+               <type>
+                  <types.FLOAT />
+               </type>
+            </w>
+            <h>
+               <description>The height</description>
+               <type>
+                  <types.FLOAT />
+               </type>
+            </h>
+         </arguments>
+         <code>
+            <set var="class.w">
+               <args.w />
+            </set>
+            <set var="class.h">
+               <args.h />
+            </set>
+         </code>
+      </constructor>
+      <function name="perimeter">
+         <access>
+            <accesses.PUBLIC />
+         </access>
+         <return>
+            2
+            <times />
+            <e>
+               <class.w />
+               <plus />
+               <class.h />
+            </e>
+         </return>
+      </function>
+      <function name="area">
+         <access>
+            <accesses.PUBLIC />
+         </access>
+         <return>
+            <class.w />
+            <times />
+            <class.h />
+         </return>
+      </function>
+      <function name="getW">
+         <description>Get width</description>
+         <returns>
+            <types.STRING />
+         </returns>
+         <access>
+            <accesses.PUBLIC />
+         </access>
+         <return>
+            <class.w />
+         </return>
+      </function>
+      <function name="getH">
+         <description>Get height</description>
+         <returns>
+            <types.FLOAT />
+         </returns>
+         <access>
+            <accesses.PUBLIC />
+         </access>
+         <return>
+            <class.h />
+         </return>
+      </function>
+      <function name="setW">
+         <description>Set width</description>
+         <returns>
+            <types.VOID />
+         </returns>
+         <arguments>
+            <w>
+               <description>The width</description>
+               <type>
+                  <types.FLOAT />
+               </type>
+            </w>
+         </arguments>
+         <access>
+            <accesses.PUBLIC />
+         </access>
+      </function>
+      <function name="setH">
+         <description>Set height</description>
+         <returns>
+            <types.VOID />
+         </returns>
+         <arguments>
+            <h>
+               <description>The height</description>
+               <type>
+                  <types.FLOAT />
+               </type>
+            </h>
+         </arguments>
+         <access>
+            <accesses.PUBLIC />
+         </access>
+      </function>
+   </Rectangle>
+</XMLANG>
