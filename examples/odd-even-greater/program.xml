@@ -21,121 +21,40 @@
          </authors>
       </by>
    </meta>
-   <arguments>
-      <num>
-         <description>The number</description>
-         <type>
-            <types.INT />
-         </type>
-      </num>
-   </arguments>
-   <code>
-      <function name="isOdd">
-         <description>Is it even, zero or odd?</description>
-         <returns><types.STRING /></returns>
-         <arguments>
-            <num>
-               <description>The number</description>
-               <type>
-                  <types.INT />
-               </type>
-            </num>
-         </arguments>
-         <code>
-            <if>
-               <test>
-                  <args.num />
-                  <equals />
-                  0
-               </test>
-               <true>
+   <program args="INT num">
+      <function name="isOdd" args="INT num" returns="STRING" description="Is it even, zero or odd?">
+         <description></description>
+            <if test="num=0">
                   <return>Zero</return>
-               </true>
-               <false>
-                  <if>
-                     <test>
-                        <args.num />
-                        <modulo />
-                        2
-                        <equals />
-                        0
-                     </test>
-                     <true>
-                        <return>Even</return>
-                     </true>
-                     <false>
-                        <return>Odd</return>
-                     </false>
-                  </if>
-               </false>
             </if>
-         </code>
+            <elseif test="num%2==0">
+                  <return>Even</return>
+            </elseif>
+            <else>
+                  <return>Odd</return>
+            </else>
       </function>
       <enum name="compare">
          <greater string="greater" verbed="greather than">1</greater>
          <equal string="equal" verbed="equals to">0</equal>
          <lesser string="lesser" verbed="less than">-1</lesser>
       </enum>
-      <function name="numCompare">
-         <description>Is it greater, equals or smaller?</description>
-         <returns><types.STRING /></returns>
-         <arguments>
-            <n>
-               <description>The reference number</description>
-               <type>
-                  <types.INT />
-               </type>
-            </n>
-            <n2>
-               <description>The number to be compared</description>
-               <type>
-                  <types.INT />
-               </type>
-               <default>0</default>
-            </n2>
-         </arguments>
-         <code>
-            <if>
-               <test>
-                  <args.n2 />
-                  <smaller />
-                  <args.n />
-               </test>
-               <true>
-                  <return>
-                     <compare.lesser />
-                  </return>
-               </true>
-               <false>
-                  <if>
-                     <test>
-                        <args.n2 />
-                        <equals />
-                        <args.n />
-                     </test>
-                     <true>
-                        <return>
-                           <compare.equal />
-                        </return>
-                     </true>
-                     <false>
-                        <return>
-                           <compare.greater />
-                        </return>
-                     </false>
-                  </if>
-               </false>
+      <function name="numCompare" args="INT n;INT n2=0" returns="compare" description="Is it greater, equal or smaller?">
+            <if test="n2<n">
+               <return><compare.lesser /></return>
             </if>
+            <elseif test="n2==n">
+                <return><compare.equal /></return>
+           </elseif>
+           <else>
+                <return><compare.greater /></return>
+           </else>
          </code>
       </function>
       <main>
          <IO.put>
             The number is
-            <isOdd>
-               <num>
-                  <args.num />
-               </num>
-            </isOdd>
+            <isOdd num="num" />
          </IO.put>
          <set var="ntwo">
             <Integer>
@@ -146,19 +65,12 @@
             The number
             <ntwo />
             is
-            <p_verbed>
-               <numCompare>
-                  <n>
-                     <args.num />
-                  </n>
-                  <n2>
-                     <ntwo />
-                  </n2>
-               </numCompare>
-            </p_verbed>
-            <args.n />
+            <prop attr="verbed">
+               <numCompare n="num" n2="ntwo" />
+            </prop attr="verbed">
+            <n />
          </IO.put>
       </main>
       <return>0</return>
-   </code>
+   </program>
 </XMLANG>
