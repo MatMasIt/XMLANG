@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <XMLANG version="1.0" type="class" namespace="Shapes">
    <meta>
-      <uid>892kxwbduamcpad</uid>
+      <uid>892kxwjddjbduamcpad</uid>
       <name>Rectangle</name>
       <description>A simpls rectangle class</description>
       <comment>What a cool class</comment>
@@ -22,130 +22,32 @@
    </meta>
    <Rectangle>
       <declarations>
-         <w>
-            <description>The width</description>
-            <type>
-               <types.FLOAT />
-            </type>
-            <access>
-               <accesses.PRIVATE />
-            </access>
-         </w>
-         <h>
-            <description>The height</description>
-            <type>
-               <types.FLOAT />
-            </type>
-            <access>
-               <accesses.PRIVATE />
-            </access>
-         </h>
+         <private float="w" description="Width" />
+         <private float="h" description="Height" default="1" />
+         <!-- Just because -->
       </declarations>
-      <constructor>
-         <arguments>
-            <w>
-               <description>The width</description>
-               <type>
-                  <types.FLOAT />
-               </type>
-            </w>
-            <h>
-               <description>The height</description>
-               <type>
-                  <types.FLOAT />
-               </type>
-            </h>
-         </arguments>
-         <code>
-            <set var="class.w">
-               <args.w />
-            </set>
-            <set var="class.h">
-               <args.h />
-            </set>
-         </code>
+      <constructor args="FLOAT w;FLOAT h">
+         <set var="this.w"><w /></set>
+         <set var="this.h"><h /></set>
       </constructor>
-      <function name="perimeter">
-         <access>
-            <accesses.PUBLIC />
-         </access>
-         <return>
-            2
-            <times />
-            <e>
-               <class.w />
-               <plus />
-               <class.h />
-            </e>
+      <public function="perimeter" returns="FLOAT">
+         <return>2*(<this.w />+<this.h />)
          </return>
-      </function>
-      <function name="area">
-         <access>
-            <accesses.PUBLIC />
-         </access>
-         <return>
-            <class.w />
-            <times />
-            <class.h />
-         </return>
-      </function>
-      <function name="getW">
-         <description>Get width</description>
-         <returns>
-            <types.STRING />
-         </returns>
-         <access>
-            <accesses.PUBLIC />
-         </access>
-         <return>
-            <class.w />
-         </return>
-      </function>
-      <function name="getH">
-         <description>Get height</description>
-         <returns>
-            <types.FLOAT />
-         </returns>
-         <access>
-            <accesses.PUBLIC />
-         </access>
-         <return>
-            <class.h />
-         </return>
-      </function>
-      <function name="setW">
-         <description>Set width</description>
-         <returns>
-            <types.VOID />
-         </returns>
-         <arguments>
-            <w>
-               <description>The width</description>
-               <type>
-                  <types.FLOAT />
-               </type>
-            </w>
-         </arguments>
-         <access>
-            <accesses.PUBLIC />
-         </access>
-      </function>
-      <function name="setH">
-         <description>Set height</description>
-         <returns>
-            <types.VOID />
-         </returns>
-         <arguments>
-            <h>
-               <description>The height</description>
-               <type>
-                  <types.FLOAT />
-               </type>
-            </h>
-         </arguments>
-         <access>
-            <accesses.PUBLIC />
-         </access>
-      </function>
+      </public>
+      <public function="area" returns="FLOAT">
+        <return><this.w />*<this.h /></return>
+      </public>
+      <public function="getW" returns="FLOAT" description="Get width">
+         <return><this.w /></return>
+      </public>
+      <public function="getH" description="Get height">
+          <return><this.h /></return>
+      </public>
+      <public function name="setW" args="FLOAT w" returns="VOID" description="Set width">
+         <set var="this.w"><w /></set>
+      </public>
+      <public function name="setH" args="FLOAT w" returns="VOID" description="Set height">
+         <set var="this.h"><h /></set>
+      </public>
    </Rectangle>
 </XMLANG>
