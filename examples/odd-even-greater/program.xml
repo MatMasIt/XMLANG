@@ -32,6 +32,7 @@
    <code>
       <function name="isOdd">
          <description>Is it even, zero or odd?</description>
+         <returns><types.STRING /></returns>
          <arguments>
             <num>
                <description>The number</description>
@@ -77,6 +78,7 @@
       </enum>
       <function name="numCompare">
          <description>Is it greater, equals or smaller?</description>
+         <returns><types.STRING /></returns>
          <arguments>
             <n>
                <description>The reference number</description>
