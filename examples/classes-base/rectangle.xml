@@ -40,7 +40,7 @@
       <public function="getW" returns="FLOAT" description="Get width">
          <return><this.w /></return>
       </public>
-      <public function="getH" description="Get height">
+      <public function="getH" returns="FLOAT" description="Get height">
           <return><this.h /></return>
       </public>
       <public function name="setW" args="FLOAT w" returns="VOID" description="Set width">
