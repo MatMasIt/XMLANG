@@ -24,10 +24,12 @@
    <program args="INT num">
       <function name="isOdd" args="INT num" returns="STRING" description="Is it even, zero or odd?">
          <description></description>
-            <if test="num=0">
+            <if>
+                  <test><num />==0</test>
                   <return>Zero</return>
             </if>
-            <elseif test="num%2==0">
+            <elseif>
+                  <test><num />%2==0</test>
                   <return>Even</return>
             </elseif>
             <else>
@@ -40,10 +42,12 @@
          <lesser string="lesser" verbed="less than">-1</lesser>
       </enum>
       <function name="numCompare" args="INT n;INT n2=0" returns="compare" description="Is it greater, equal or smaller?">
-            <if test="n2 < n">
+            <if>
+                <test><n2 /><le />n</test>
                <return><compare.lesser /></return>
             </if>
-            <elseif test="n2==n">
+            <elseif>
+                <test><n2 />==n</test>
                 <return><compare.equal /></return>
            </elseif>
            <else>
